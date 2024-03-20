@@ -1,4 +1,5 @@
 var express = require("express");
+var mongoose = require("mongoose")
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -13,6 +14,13 @@ var docsRouter = require('./routes/docs');
 
 // Create a new express instance
 var app = express();
+
+// Connect to MongoDB database
+
+mongoose
+  .connect("mongodb://127.0.0.1:27017/cohort-tools-api")
+  .then(x => console.log(`Connected to Database: "${x.connection[0].name}"`))
+  .catch(err => console.error("Error connecting to MongoDB", err));
 
 
 // Set up and mount middleware - processes the request before reaching the final response handlers
