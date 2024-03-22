@@ -4,8 +4,8 @@ const Schema = mongoose.Schema
 const studentSchema = new Schema({
     firstName: String,
     lastName: String,
-    email: { type: String, unique: true},
-    phone: { type: String, maxlength: 16, unique: true },
+    email: { type: String, unique: true, required: true},
+    phone: { type: String, maxlength: 16, unique: true, required: true},
     linkedinUrl: String,
     languages: Array,
     program: String,
