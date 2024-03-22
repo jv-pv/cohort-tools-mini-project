@@ -111,6 +111,8 @@ router.get("/students", (req, res) => {
     });
 });
 
+
+// Post a new student
 router.post("/students", (req, res, next) => {
   const {
     firstName,
